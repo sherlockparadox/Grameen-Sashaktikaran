@@ -1,0 +1,210 @@
+* {
+  margin: 0;
+  padding: 0
+}	
+body,
+html {
+  display: flex;
+  justify-content: center;
+  align-teims: center;
+  height: 100%
+}
+.st0{fill:#ECB63C;}
+.st1{fill:#42680B;}
+.st2{fill:#7ABF26;}
+.st3{fill:#DADADA;}
+.st4{fill:#004651;}
+.st5{fill:#27B7C5;}
+.st6{fill:#A3E4E1;}
+.st7{fill:#F6F6F6;}
+.st8{fill:#BE1622;}
+.st9{fill:#EDEDED;}
+.st10{fill:#B2B2B2;}
+.st11{fill:#005E26;}
+.st12{fill:#3D0103;}
+.st13{fill:#009254;}
+.st14{fill:#00A9B8;}
+.st15{fill:#037477;}
+.st16{fill:#193B53;}
+.st17{fill:#50777F;}
+.st18{fill:#C6C6C6;}
+.st19{fill:#273438;}
+.st20{fill:#DE2D32;}
+.st21{fill:#FF9409;}
+.st22{fill:#1D15B7;}
+.st23{fill:#E50E28;}
+.st24{fill:#9D9D9C;}
+
+svg {
+  width: 600px;
+  max-width: 90%;
+  animation-name: trees;
+  animation-duration: .5s;
+}
+svg,
+.sun,
+.hospital,
+.hospital1,
+.hospital2,
+.cruz,
+.trees,
+.tree1,
+.tree2,
+.tree3,
+.ambulance,
+.cloud,
+.ground {
+  animation-timing-function: linear;
+	animation-fill-mode: backwards;
+  transform-origin: 50%;
+}
+.sun {
+  animation-name: sun;
+	animation-delay: .1s;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+@keyframes sun {
+  0% {
+    transform: scale(.9);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(.9);
+  }
+}
+
+.cloud1 {
+  animation-name: cloud1;
+	animation-delay: .1s;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  transform: translateX(-610px)
+}
+@keyframes cloud1 {
+  0% {
+    transform: translateX(1200px);
+    opacity: 0
+  }
+  50% {
+    opacity: 1
+  }
+  80% {
+    opacity: 0
+  }
+  100% {
+  }
+}
+.cloud1,
+.cloud2,
+.cloud3 {
+  fill: #f2f2f2
+}
+.cloud2 {
+  animation-name: cloud1;
+	animation-delay: 1s;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  transform: translateX(-600px);
+}
+.cloud3 {
+  animation-name: cloud3;
+	animation-delay: 2s;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  transform: translateX(-1100px);
+}
+@keyframes cloud3 {
+  0% {
+    transform: translateX(420px);
+    opacity: 0
+  }
+  50% {
+    opacity: 1
+  }
+  80% {
+    opacity: 0
+  }
+  100% {
+  }
+}
+.ground {
+  animation-name: trees;
+	animation-delay: 1s;
+  animation-duration: .5s;
+}
+.trees {
+  animation-name: trees;
+	animation-delay: 2s;
+  animation-duration: .5s;
+}
+@keyframes trees {
+  0% {
+    transform: scale(0);
+    opacity: 0
+  }
+  50% {
+    opacity: 1
+  }
+  100% {}
+}
+
+.hospital,
+.hospital1,
+.hospital2,
+.cruz,
+.ambulance {
+  animation-name: trees;
+	animation-delay: 3s;
+  animation-duration: .5s;
+}
+.hospital1 {
+	animation-delay: 4s;
+}
+.hospital2 {
+	animation-delay: 5s;
+}
+.cruz {
+	animation-delay: 5.5s;
+}
+.ambulance {
+  animation-delay: 6s;
+}
+.tree1,
+.tree2,
+.tree3 {
+  animation-name: treesAnima;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  transform-origin: 50%;
+}
+
+@keyframes treesAnima {
+  0% {
+    transform: scale(.9) ;
+  }
+  50% {
+    transform: scale(1) rotate(-5deg);
+  }
+  100% {
+    transform: scale(.9);
+  }
+}
+.vral-ambulance {
+  animation-name: vral;
+  animation-duration: 1s;
+  animation-delay: 10s;
+/*   animation-iteration-count: infinite; */
+  animation-timing-function: linear;
+	animation-fill-mode: forwards;
+  transform-origin: 50%;
+}
+@keyframes vral {
+  from {}
+    to {
+      transform: translateX(-600px);
+      opacity: 0
+  }
+}

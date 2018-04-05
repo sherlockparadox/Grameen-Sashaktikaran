@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Create Patient Record</title>
+  
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css'>
+  <link rel="stylesheet" href="css/style.css">
+        <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+    
+<form name="add_details" action="../../Back-End/insert/insert.php" method="POST">    
+  <div class="container">
+  <div class="wizard" id="myWizard">
+    <section>
+      <h4 class="page-title text-center">Patient Medical Record</h4>
+    </section>
+    <div class="wizard__progress">
+        
+        
+      <ul class="wizard__labels nav nav-tabs">
+        <li style="width:20%;" class="col-xs-12 active">
+          <a href="#create-records" data-toggle="tab" data-step="1">
+            <i class="fa fa-user wizard__icon"></i> Personal Information</a>
+        </li>
+          
+        <li style="width:20%;" class="col-xs-12 ">
+          <a href="#medical-info" data-toggle="tab" data-step="2">
+            <i class="fa fa-hospital-o wizard__icon"></i> Medical Information</a>
+        </li>
+          
+        <li style="width:20%;" class="col-xs-12 ">
+          <a href="#financial-info" data-toggle="tab" data-step="3">
+            <i class="fa fa-credit-card wizard__icon"></i> Financial Information</a>
+        </li>
+          
+        <li style="width:20%;" class="col-xs-12 ">
+          <a href="#biometric" data-toggle="tab" data-step="4">
+            <i class="fa fa-hand-pointer-o wizard__icon"></i> Biometric</a>
+        </li>
+          
+        <li style="width:20%;" class="col-xs-12 " id="lastli">
+          <a href="#validate" data-toggle="tab" data-step="5">
+            <i class="fa fa-check wizard__icon"></i>Validate
+          </a>
+        </li>
+          
+          
+      </ul>
+        
+
+      <div class="progress">
+        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="5" style="width: 20%;"> </div>
+      </div>
+    </div>
+    <div class="tab-content">
+      <div class="tab-pane fade in active" id="create-records">
+
+        <section>
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label class="control-label" for="name--first"> First Name<span class="required">*</span></label>
+                <input type="text" class="form-control input-sm" id="name__first">
+              </div>
+            </div>
+            <!-- / end col -->
+
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label class="control-label" for="name--middle"> Middle Name</label>
+                <input type="text" class="form-control input-sm" id="name__last">
+              </div>
+            </div>
+            <!-- / end col -->
+
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label class="control-label" for="name--last"> Last Name <span class="required">*</span></label>
+                <input type="text" class="form-control input-sm" id="name__last">
+              </div>
+            </div>
+            <!-- / end col -->
+
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label class="control-label" for="gender">Gender</label>
+                <select class="form-control input-sm" id="gender">
+                  <option value="">Male</option>
+                  <option value="">Female</option>
+                  <option value="">Other</option>
+                </select>
+              </div>
+            </div>
+            <!-- / end col -->
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label class="control-label" for="dob">Date of Birth</label>
+                <input type="text" class="js-single-daterange form-control input-sm" id="dob" />
+              </div>
+            </div>
+            <!-- / end col -->
+
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label class="control-label" for="name--guardian"> Parent/Guardian Name</label>
+                <input type="text" class="form-control input-sm" id="name__guardian">
+              </div>
+            </div>
+            <!-- / end col -->
+
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label class="control-label" for="mstatus">Marital Status<span class="required">*</span></label>
+                <select class="form-control input-sm" id="mstatus">
+                  <option value="">Married</option>
+                  <option value="">Unmarried</option>
+                </select>
+              </div>
+            </div>
+            <!-- / end col -->
+
+            <div class="col-sm-8">
+              <div class="form-group">
+                <label class="control-label" for="name--spouse"> Spouse Name</label>
+                <input type="text" class="form-control input-sm" id="name__spouse">
+              </div>
+            </div>
+            <!-- / end col -->
+
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label class="control-label" for="num_children">Number of Children(if any)</label>
+                <input type="text" class="form-control input-sm" id="num_children">
+              </div>
+            </div>
+            <!-- / end col -->
+
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label class="control-label" for="cnum">Contact Number<span class="required">*</span></label>
+                <input type="text" class="form-control input-sm" id="cnum">
+              </div>
+            </div>
+            <!-- / end col -->
+
+            <div class="col-sm-2">
+              <div class="form-group">
+                <label class="control-label" for="phone-type">Phone Type</label>
+                <select class="form-control input-sm" id="phone-type">
+                  <option value="">Mobile</option>
+                  <option value="">Home</option>
+                </select>
+              </div>
+            </div>
+            <!-- / end col -->
+
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label class="control-label" for="altphone">Alternate Phone</label>
+                <input type="phone" class="form-control input-sm" id="phone">
+              </div>
+            </div>
+            <!-- / end col -->
+
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label class="control-label" for="city">City<span class="required">*</span></label>
+                <input type="text" class="form-control input-sm" id="city">
+              </div>
+            </div>
+            <!-- / end col -->
+
+
+            <div class="col-sm-3">
+              <!-- ================= state ================= -->
+              <div class="form-group">
+                <label class="control-label" for="country">State<span class="required">*</span></label>
+                <select class="form-control input-sm" id="state">
+                  <option>Rajasthan</option>
+                  <option>Tamil Nadu</option>
+                  <option>Uttar Pradesh</option>
+                </select>
+              </div>
+            </div>
+            <!-- / end col -->
+
+            <div class="col-sm-12">
+              <!-- ================= address ================= -->
+              <div class="form-group">
+                <label class="control-label" for="address">Permanent Address<span class="required">*</span></label>
+                <input type="text" class="form-control input-sm" id="address" />
+              </div>
+            </div>
+            <!-- / end col -->
+
+            <div class="col-xs-12">
+
+              <div class="collapse space-bottom-lg" id="address--manual1">
+
+                <div class="row">
+
+                  <div class="col-xs-12">
+                    <!-- ================= address ================= -->
+                    <div class="form-group">
+                      <label class="control-label" for="address">Address</label>
+                      <textarea class="form-control input-sm" rows="3" id="address"></textarea>
+                    </div>
+                  </div>
+                  <!-- / end col -->
+
+                  <div class="col-sm-6">
+                    <!-- ================= city ================= -->
+                    <div class="form-group">
+                      <label class="control-label" for="info--city">City</label>
+                      <input type="text" class="form-control input-sm" id="info--city" placeholder="city" />
+                    </div>
+                  </div>
+                  <!-- / end col -->
+
+                  <div class="col-sm-6">
+                    <!-- ================= postal ================= -->
+                    <div class="form-group">
+                      <label class="control-label" for="postal--code">Postal Code</label>
+                      <input type="text" class="form-control input-sm" id="postal--code" placeholder="Postal Code" />
+                    </div>
+                  </div>
+                  <!-- / end col -->
+
+                </div>
+
+              </div>
+              <!-- / end collapse -->
+
+            </div>
+            <!-- / end col -->
+
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label class="control-label" for="email">Email<span class="required">*</span></label>
+                <input type="text" class="form-control input-sm" id="email">
+              </div>
+            </div>
+            <!-- / end col -->
+
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label class="control-label" for="edu">Education Details<span class="required">*</span></label>
+                <input type="text" class="form-control input-sm" id="edu">
+                <button class="help-block btn btn-link btn-sm pull-right" type="button" data-toggle="collapse" data-target="#edu-manual" aria-expanded="false" aria-controls="edu-manual">Add Education Details.</button>
+              </div>
+            </div>
+            <!-- / end col -->
+            <div class="col-xs-12">
+
+              <div class="collapse space-bottom-lg" id="edu-manual">
+
+                <div class="row">
+
+                  <div class="col-xs-12">
+                    <!-- ================= address ================= -->
+                    <div class="form-group">
+                      <label class="control-label" for="edu_detail">Education</label>
+                      <textarea class="form-control input-sm" rows="3" id="edu_detail"></textarea>
+                    </div>
+                  </div>
+                  <!-- / end col -->
+
+                  <div class="col-sm-6">
+                </div>
+              </div>
+              <!-- / end collapse -->
+
+
+          </div>
+        </section>
+        <section class="text-right">
+          <button type="button" class="btn btn-primary btn-sm next">Continue</button>
+        </section>
+
+      </div>
+      <div class="tab-pane fade" id="medical-info">
+        <section>
+
+          <div class="row">
+
+			<div class="col-sm-12">
+            	<center>Emergency Contact</center>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label class="control-label" for="emergency--name"> Name</label>
+                <input type="text" class="form-control input-sm" id="emergency--name">
+              </div>
+            </div>
+            <!-- / end col -->
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label class="control-label" for="emergency--phone"> Phone</label>
+                <input type="text" class="form-control input-sm" id="emergency--phone">
+              </div>
+            </div>
+            <!-- / end col -->
+            <div class="col-xs-12">
+                    <div class="form-group">
+                      <label class="control-label" for="emergency--address">Address</label>
+                      <textarea class="form-control input-sm" rows="3" id="emergency__address"></textarea>
+                    </div>
+                  </div>
+                  <!-- / end col -->
+            <div class="col-sm-12">
+            	<center>Medical Information</center>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label class="control-label" for="height">Height</label>
+                <input type="text" class="form-control input-sm" id="height">
+              </div>
+            </div>
+            <!-- / end col -->
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label class="control-label" for="weight">Weight</label>
+                <input type="text" class="form-control input-sm" id="weight">
+              </div>
+            </div>
+            <!-- / end col -->
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label class="control-label" for="blood">Blood Group</label>
+                <input type="text" class="form-control input-sm" id="blood">
+              </div>
+            </div>
+            <!-- / end col -->
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label class="control-label" for="fhistory">Family Health History</label>
+                <input type="text" class="form-control input-sm" id="fhistory">
+              </div>
+            </div>
+            <!-- / end col -->
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label class="control-label" for="mhistory">Medical History</label>
+                <input type="text" class="form-control input-sm" id="mhistory">
+              </div>
+            </div>
+            <!-- / end col -->
+
+            
+
+            <div class="col-sm-6">
+              
+              <div class="form-group">
+                <label class="control-label" for="allergies">Allergies</label>
+                <input type="text" class="form-control input-sm" id="allergies" />
+                </select>
+              </div>
+            </div>
+            <!-- / end col -->
+
+
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label class="control-label" for="surgeries">Surgeries</label>
+                <input type="text" class="form-control input-sm" id="surgeries" />
+              </div>
+            </div>
+            <!-- / end col -->
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label class="control-label" for="vaccines">Vaccines</label>
+                <input type="text" class="form-control input-sm" id="vaccines" />
+              </div>
+            </div>
+            <!-- / end col -->
+            <div class="col-sm-12">
+            	<center>Insurance Information</center>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label class="control-label" for="provider">Insurance Provider</label>
+                <input type="text" class="form-control input-sm" id="provider" />
+              </div>
+            </div>
+            <!-- / end col -->
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label class="control-label" for="grp-name">Group Name</label>
+                <input type="text" class="form-control input-sm" id="grp-name" />
+              </div>
+            </div>
+            <!-- / end col -->
+            <div class="col-xs-12">
+                    <div class="form-group">
+                      <label class="control-label" for="insuranceadd">Address</label>
+                      <textarea class="form-control input-sm" rows="3" id="insuranceadd"></textarea>
+                    </div>
+                  </div>
+                  <!-- / end col -->
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label class="control-label" for="policy">Policy Name</label>
+                <input type="text" class="form-control input-sm" id="policy" />
+              </div>
+            </div>
+            <!-- / end col -->
+
+
+          </div>
+          <!-- / end row -->
+
+
+        </section>
+        <section class="text-right">
+          <button type="button" class="btn btn-primary btn-sm next" id="enter-id-button">Continue</button>
+        </section>
+      </div>
+      <div class="tab-pane fade" id="financial-info">
+        <section>
+
+          <div class="row">
+
+
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label class="control-label" for="occupation"> Occupation</label>
+                <input type="text" class="form-control input-sm" id="occupation">
+              </div>
+            </div>
+            <!-- / end col -->
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label class="control-label" for="cname"> Company Name</label>
+                <input type="text" class="form-control input-sm" id="cname">
+              </div>
+            </div>
+            <!-- / end col -->
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label class="control-label" for="empid">Employee ID</label>
+                <input type="text" class="form-control input-sm" id="empid">
+              </div>
+            </div>
+            <!-- / end col -->
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label class="control-label" for="worktime">Worked Since</label>
+                <input type="text" class="form-control input-sm" id="worktime">
+              </div>
+            </div>
+            <!-- / end col -->
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label class="control-label" for="offadd">Office Address</label>
+                <input type="text" class="form-control input-sm" id="offadd">
+              </div>
+            </div>
+            <!-- / end col -->
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label class="control-label" for="offph">Office Phone</label>
+                <input type="text" class="form-control input-sm" id="offph">
+              </div>
+            </div>
+            <!-- / end col -->
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label class="control-label" for="income">Annual Income</label>
+                <input type="text" class="form-control input-sm" id="income">
+              </div>
+            </div>
+            <!-- / end col -->
+
+            
+
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label class="control-label" for="pan">PAN Number</label>
+                <input type="text" class="form-control input-sm" id="pan" />
+                </select>
+              </div>
+            </div>
+            <!-- / end col -->
+
+
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label class="control-label" for="schemes">Governmental Schemes Enrolled (if any)</label>
+                <input type="text" class="form-control input-sm" id="schemes" />
+              </div>
+            </div>
+            <!-- / end col -->
+            <div class="col-sm-12">
+            	<center>Bank Information</center>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label class="control-label" for="accholdername">Account Holder Name</label>
+                <input type="text" class="form-control input-sm" id="accholdername" />
+              </div>
+            </div>
+            <!-- / end col -->
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label class="control-label" for="accnumber">Account Number</label>
+                <input type="text" class="form-control input-sm" id="accnumber" />
+              </div>
+            </div>
+            <!-- / end col -->
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label class="control-label" for="bankname">Bank Name</label>
+                <input type="text" class="form-control input-sm" id="bankname" />
+              </div>
+            </div>
+            <!-- / end col -->
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label class="control-label" for="ifsc">IFSC Code</label>
+                <input type="text" class="form-control input-sm" id="ifsc" />
+              </div>
+            </div>
+            <!-- / end col -->
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label class="control-label" for="branch">Branch</label>
+                <input type="text" class="form-control input-sm" id="branch" />
+              </div>
+            </div>
+            <!-- / end col -->
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label class="control-label" for="bankadd">Bank Address</label>
+                <input type="text" class="form-control input-sm" id="bankadd" />
+              </div>
+            </div>
+            <!-- / end col -->
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label class="control-label" for="bankstate">Bank State</label>
+                <input type="text" class="form-control input-sm" id="bankstate" />
+              </div>
+            </div>
+            <!-- / end col -->
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label class="control-label" for="bankdis">Bank District</label>
+                <input type="text" class="form-control input-sm" id="bankdis" />
+              </div>
+            </div>
+            <!-- / end col -->
+
+
+          </div>
+          <!-- / end row -->
+
+
+        </section>
+        <section class="text-right">
+          <button type="button" class="btn btn-primary btn-sm next" id="enter-id-button">Continue</button>
+        </section>
+      </div>
+
+      <div class="tab-pane fade" id="biometric">
+        <section>
+          <div class="row">
+            
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label class="control-label" for="start-date">Biometric Input</label>
+                <input type="text" class="js-single-daterange form-control input-sm" id="start-date" />
+              </div>
+            </div>
+            <!-- / end col -->
+            
+          </div>
+        </section>
+        <section class="text-right">
+          <button type="button" class="btn btn-primary btn-sm next" id="last">Continue</button>
+        </section>
+      </div>
+      <div class="tab-pane fade" id="validate">
+        <section>
+          <div class="alerts--child alerts--success">
+            <div class="alerts__icon">
+              <i class="fa fa-check"></i>
+            </div>
+            <div class="alerts__text">
+              <span class="alerts__type">Success: </span>Entry Successful!
+            </div>
+            <input type="submit" class="btn btn-primary btn-sm next">
+
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</div>
+</form>
+
+
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/1.3.22/daterangepicker.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.js'></script>
+
+  
+
+    <script  src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>
